@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //пример 1
+        let a = 1, b = 1, c, d;
+        c = ++a;
+        alert(c); // ответ: 2, 
+        // в начале c = undefined, затем значение переписывается на а+а (++a) = 2
+
+        //пример 2
+        d = b++;
+        alert(d); //ответ: 1
+        // ++ в переменную d просто записывается значение b
+
+        //пример 3
+        c = 2 + ++a;
+        alert(c); //ответ: 5
+        // c = 2, a = 2 (из примера 1), а + 1 за счет ++
+
+        //пример 4
+        d = 2 + b++;
+        alert(d); //ответ: 4
+        // b = 2 (из примера 2), с помощью оператора ++ b = 3, 2+3=5 (перезаписывается значение переменной d)
+        alert(a); //3
+        // в начале a = 1, ++a в примерах 1 и 3 (a = 3)
+        alert(b); //3
+        // b = 2 (из примера 2), с помощью оператора ++ b = 3
+    </script>
+</body>
+
+</html>

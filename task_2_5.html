@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function mathOperation(arg1, arg2, operation) {
+            if (operation == '+') {
+                return arg1 + arg2
+            } else if (operation == '-') {
+                return arg1 - arg2
+            } else if (operation == '*') {
+                return arg1 * arg2
+            } else if (operation == '/') {
+                return arg1 / arg2
+            } else {
+                alert('Вы ввели что-то не то')
+            }
+        }
+
+        let a = +prompt('Введите число A:')
+        let b = +prompt('Введите число B:')
+        let oper = prompt('Введите знак операции (+, -, /, *):')
+        alert(mathOperation(a, b, oper))
+    </script>
+</body>
+
+</html>
