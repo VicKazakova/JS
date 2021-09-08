@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        //es5
+        function Post(author, text, date) {
+            this.author = author;
+            this.text = text;
+            this.date = date;
+        }
+
+        Post.prototype.edit = function (newText) {
+            this.text = newText;
+        }
+
+        function AttachedPost(author, text, date, highlighted = false) {
+            Post.call(this, author, text, date);
+            this.highlighted = highlighted;
+        }
+
+        AttachedPost.prototype.makeTextHighlighted = function () {
+            this.highlighted = true;
+        }
+
+        AttachedPost.prototype = Object.create(Post.prototype);
+        AttachedPost.prototype.constructor = AttachedPost;
+
+        const obj1 = new Post('Marina', 'lorem ipsum', '10-02-2020');
+        const obj2 = new AttachedPost('Andrei', 'lorem ipsum2', '11-02-2020');
+        obj1.edit('lorem');
+        obj2.edit('lorem2');
+        console.log(obj1);
+        console.log(obj2);
+        obj2.makeTextHighlighted();
+        console.log(obj2);
+
+        //es6
+        class Post {
+            constructor(author, text, date) {
+                this.author = author;
+                this.text = text;
+                this.date = date;
+            }
+            edit(newText) {
+                this.text = newText;
+            }
+        }
+
+        class AttachedPost extends Post {
+            constructor(author, text, date, highlighted = false) {
+                super(author, text, date);
+                this.highlighted = highlighted;
+            }
+
+            makeTextHighlighted() {
+                this.highlighted = true;
+            }
+        }
+
+        const obj1 = new Post('Marina', 'lorem ipsum', '10-02-2020');
+        const obj2 = new AttachedPost('Andrei', 'lorem ipsum2', '11-02-2020');
+        obj1.edit('lorem');
+        obj2.edit('lorem2');
+        console.log(obj1);
+        console.log(obj2);
+        obj2.makeTextHighlighted();
+        console.log(obj2);
+
+    </script>
+</body>
+
+</html>
